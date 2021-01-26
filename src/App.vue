@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <span>{{this.$store.state.name}}</span>
+    <span>{{this.$store.getters.name2}}</span>
     <div>
       <button @click="change">改变name</button>
     </div>
@@ -13,8 +14,8 @@ export default {
   components: {},
   methods: {
     change() {
-      console.log(this.$store);
-      this.$store.commit("setName", "yixin");
+      // this.$store.commit("setName", "yixin");
+      this.$store.dispatch("setAsyncName", "yixin");
     }
   }
 };

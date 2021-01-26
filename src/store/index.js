@@ -12,6 +12,17 @@ export default new Vuex.Store({
       state.name = payload;
     },
   },
-  actions: {},
+  getters: {
+    name2(state) {
+      return state.name + "-";
+    },
+  },
+  actions: {
+    setAsyncName({ commit }, payload) {
+      setTimeout(() => {
+        commit("setName", payload);
+      }, 1000);
+    },
+  },
   modules: {},
 });
